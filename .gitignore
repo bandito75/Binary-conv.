@@ -1,0 +1,36 @@
+import java.util.*;
+public class BinaryConversion {
+//Written by Michael Revilla
+//Reads in binary code, and changes it to decimal
+//prints out decimal 
+	public static void main(String[] args) { 
+	  String binNum = "";
+	  double dec;
+		
+	  Scanner X = new Scanner(System.in);
+	  System.out.println("To quit enter: -1 ");
+	 
+	  while(true){
+	  System.out.print("Enter a binary number: ");
+	  binNum = X.nextLine();
+		if(Double.parseDouble(binNum) == -1)
+		   break;
+		dec = binToDec(binNum);	    
+	  	System.out.println("Conversion to decimal: " + dec);
+	  }
+	  System.out.println("All set!");
+	  X.close();
+	}
+	
+	public static int binToDec (String binStr){
+	  double temp;
+	  temp = 0;
+		
+	  for(int i = 0; i < binStr.length(); i++){
+	     if(binStr.charAt(i) == '1'){
+	        temp += Math.pow(2,binStr.length()-1-i);
+	     }
+	  }
+	  return (int)temp;
+	}
+}
